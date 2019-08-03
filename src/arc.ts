@@ -169,7 +169,11 @@ async function checkWeb3ProviderIsForNetwork(provider: any): Promise<string> {
 
   const networkId = await getNetworkId(provider);
   const networkName = await getNetworkName(networkId);
-  return (networkName === expectedNetworkName) ?  null : expectedNetworkName;
+  if (networkName === "unknown") {
+    return null; // assume the user knows what they are doing.  example: Opera
+  } else {
+    return (networkName === expectedNetworkName) ?  null : expectedNetworkName;
+  }
 }
 
 /**
@@ -481,10 +485,11 @@ export async function setWeb3ProviderAndWarn(web3ProviderInfo: IWeb3ProviderInfo
     /**
    * make sure the injected provider is the one we're looking for
    */
-    if (provider && !provider[web3ProviderInfo.check]) {
-      console.log(`instantiated provider is not the one requested: ${provider.name} != ${web3ProviderInfo.name}`);
-      throw new Error("Unable to instantiate provider");
-    }
+    // fails with opera
+    // if (provider && !provider[web3ProviderInfo.check]) {
+    //   console.log(`instantiated provider is not the one requested: ${provider.name} != ${web3ProviderInfo.name}`);
+    //   throw new Error("Unable to instantiate provider");
+    // }
 
     success = provider ? await enableWeb3Provider(provider) : false;
 

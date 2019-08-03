@@ -242,7 +242,8 @@ export async function getNetworkId(web3Provider?: any): Promise<string> {
     throw new Error("getNetworkId: unable to find web3");
   }
 
-  return (await (web3.eth.net ? web3.eth.net.getId() : promisify(web3.version.getNetwork)())).toString();
+  return await ((web3.eth && web3.eth.net) ? web3.eth.net.getId() : 
+    web3.version ? promisify(web3.version.getNetwork)().toString() : Promise.resolve("-1"));
 }
 
 export async function getNetworkName(id?: string): Promise<string> {
@@ -271,7 +272,7 @@ export async function getNetworkName(id?: string): Promise<string> {
     case "1512051714758":
       return "ganache";
     default:
-      return `unknown (${id})`;
+      return "unknown";
   }
 }
 
