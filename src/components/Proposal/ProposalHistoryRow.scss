@@ -17,7 +17,8 @@
 .endDate {
   width: 60px;
   color: $gray-1;
-  padding-top: 15px;
+  position: relative;
+  top: 15px;
   padding-right: 10px;
   text-align: left;
 }
@@ -25,16 +26,21 @@
 .scheme {
   width: 80px;
   color: $gray-1;
-  padding-top: 15px;
+  position: relative;
+  top: 15px;
   text-align: left;
+  padding-right: 8px;
 }
 
 .title {
   flex-grow: 1;
   width: 250px;
-  padding: 15px;
   position: relative;
+  top: 16px;
   color: rgba(80, 97, 118, 1.000);
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   a {
     color: rgba(80, 97, 118, 1.000);
@@ -94,24 +100,32 @@
     width: 110px;
 }
 
+.myActions > div {
+  display: table-cell;
+  vertical-align: middle;
+  height: 100%;
+}
+
 .myActions.iVoted .myVote, .myActions.iStaked .myStake {
-  display: block;
-  padding-bottom: 5px;
   text-align: left;
+  display: block;
+
+  img {
+    position: relative;
+    top: 4px;
+  }
 }
 
 .myActions.forStake .forStake, .myActions.againstStake .againstStake, .myActions.passVote .passVote, .myActions.failVote .failVote {
   display: inline-block;
   margin-left: 7px;
-  position: relative;
-  top: 3px;
 }
 
 .myActions {
   color: rgba(80, 97, 118, 1.000);
-  padding-top: 10px;
-  text-align: center;
-  width: 110px;
+  white-space: nowrap;
+  display: table;
+  height: 100%;
 }
 
 .voteControls {
@@ -136,10 +150,10 @@
     display: block;
     width: auto;
 
-    div {
+    > div {
       display: inline-block;
     }
-    
+
     div.scheme {
       display: none;
     }
@@ -148,19 +162,23 @@
       display: none;
     }
   }
-
+    
   .endDate {
     width: 70px;
-    padding-top: 8px;
+    position: relative;
+    top: 10px;
     text-align: right;
     font-size: 11px;
     float: right;
   }
 
   .title {
-    padding: 15px 0;
     font-weight: bold;
     font-size: 13px;
+    position: relative;
+    left: 18px;
+    top: 8px;
+    width: 90%;
   }
 
   .closeReason {
@@ -180,7 +198,7 @@
   .predictions {
     position: absolute;
     left: 230px;
-    top: 63px;
+    top: 71px;
   }
 
   .closeReason .decisionReason {

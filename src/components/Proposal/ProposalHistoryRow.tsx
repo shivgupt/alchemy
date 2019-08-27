@@ -138,7 +138,7 @@ class ProposalHistoryRow extends React.Component<IProps, IState> {
           <div>{proposalState.queue.name.replace(/([A-Z])/g, " $1")}</div>
         </div>
         <div className={css.title}>
-          <div><Link to={"/dao/" + dao.address + "/proposal/" + proposal.id} data-test-id="proposal-title">{humanProposalTitle(proposalState)}</Link></div>
+          <Link to={"/dao/" + dao.address + "/proposal/" + proposal.id} data-test-id="proposal-title">{humanProposalTitle(proposalState)}</Link>
         </div>
         <div className={css.votes}>
           <div className={voteControls}>
@@ -169,15 +169,17 @@ class ProposalHistoryRow extends React.Component<IProps, IState> {
           </div>
         </div>
         <div className={myActionsClass}>
-          <div className={css.myVote}>
-            <span>{formatTokens(currentAccountVoteAmount, "Rep")}</span>
-            <img className={css.passVote} src="/assets/images/Icon/vote/for-fill.svg"/>
-            <img className={css.failVote} src="/assets/images/Icon/vote/against-fill.svg"/>
-          </div>
-          <div className={css.myStake}>
-            <span>{formatTokens(currentAccountStakeAmount, "GEN")}</span>
-            <img className={css.forStake} src="/assets/images/Icon/v-small-fill.svg"/>
-            <img className={css.againstStake} src="/assets/images/Icon/x-small-fill.svg"/>
+          <div>
+            <div className={css.myVote}>
+              <span>{formatTokens(currentAccountVoteAmount, "Rep")}</span>
+              <img className={css.passVote} src="/assets/images/Icon/vote/for-fill.svg"/>
+              <img className={css.failVote} src="/assets/images/Icon/vote/against-fill.svg"/>
+            </div>
+            <div className={css.myStake}>
+              <span>{formatTokens(currentAccountStakeAmount, "GEN")}</span>
+              <img className={css.forStake} src="/assets/images/Icon/v-small-fill.svg"/>
+              <img className={css.againstStake} src="/assets/images/Icon/x-small-fill.svg"/>
+            </div>
           </div>
         </div>
       </div>

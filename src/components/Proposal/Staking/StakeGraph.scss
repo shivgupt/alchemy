@@ -13,7 +13,7 @@
      display: flex;
 
      .leftColumn {
-      padding-right: 5px;
+       padding-right: 0;
      }
 
      .rightColumn {
@@ -134,6 +134,8 @@
   .stakesAgainst, .stakesFor {
     color: $gray-1;
     font-weight: normal;
+    white-space: nowrap;
+    display: block;
   }
 
   .forBar, .againstBar {
