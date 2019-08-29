@@ -69,7 +69,7 @@ const settings = {
       "host": process.env.ARC_IPFSPROVIDER_HOST || "api.thegraph.com",
       "port": process.env.ARC_IPFSPROVIDER_PORT || "443",
       "protocol": process.env.ARC_IPFSPROVIDER_PROTOCOL || "https",
-      "api-path": process.env.ARC_IPFSPROVIDER_API_PATH || "/ipfs/",
+      "api-path": process.env.ARC_IPFSPROVIDER_API_PATH || "/ipfs/api/v0/",
     },
   },
 };
